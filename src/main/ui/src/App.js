@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setButtonDisabled(isButtonDisabled(status));
     setButtonText(getButtonText(status));
-  }, [status])
+  }, [status]);
 
   const refresh = () => {
     fetch('/api/status').then(response => response.json()).then(json => {
@@ -66,7 +66,7 @@ function App() {
         <p disabled={loading}>
           Server Status: {status}
         </p>
-        <button className="App-button" disabled={() => buttonDisabled(status) || loading} onClick={handleClick}>
+        <button className="App-button" disabled={buttonDisabled || loading} onClick={handleClick}>
           {buttonText}
         </button>
         <br/>
