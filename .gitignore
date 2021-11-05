@@ -12,4 +12,5 @@ out/
 .settings
 .classpath
 .factorypath
-**/.log
+**/*.log
+src/main/ui/node
