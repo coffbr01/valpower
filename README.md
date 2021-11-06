@@ -12,6 +12,8 @@ AWS_REGION=region_of_the_instance
 ```
 The IAM account you use will need permission to start, stop, and read the status of the EC2 instance
 
+## Build and run
+
 #### Backend
 ```
 ./mvnw clean install
