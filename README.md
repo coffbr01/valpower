@@ -10,7 +10,7 @@ Your IAM account needs permission to read EC2 status, start, and stop instances
 Change Constants.java to your region and instance-id. (TODO micronaut properties)
 ```
 ./mvnw clean install
-java -jar valpower-0.1.jar
+java -jar target/valpower-0.1.jar
 ```
 
 ## Docker works too...
