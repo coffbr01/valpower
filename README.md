@@ -1,12 +1,15 @@
-## Micronaut 3.1.3 Documentation
+## Val(hiem) power!
 
-- [User Guide](https://docs.micronaut.io/3.1.3/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.1.3/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.1.3/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Turns on and off an EC2 instance with a React web UI powered by a Micronaut backend.
 
-## Feature http-client documentation
+## Environment Configuration
+Before you run it, make sure to set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables. Your IAM account needs permission to read EC2 status and startup/shutdown instances)
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+## How to run it
+Change Constants.java to your region and instance-id. (TODO micronaut properties)
+./mvnw clean install
+java -jar valpower-0.1.jar
 
+## Docker works too...
+./mvn clean install
+docker build .
