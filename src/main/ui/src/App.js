@@ -1,11 +1,15 @@
-import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Button, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { Box } from '@mui/system';
+import StatusIcon from './StatusIcon';
 
-function App() {
-  const [status, setStatus] = useState('PENDING');
+const theme = createTheme();
+
+const App = () => {
+  const [status, setStatus] = useState();
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [buttonText, setButtonText] = useState('Wait...');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     refresh();
@@ -29,11 +33,8 @@ function App() {
         return 'Stop Server';
       case 'STOPPED':
         return 'Start Server';
-      case 'PENDING':
-      case 'STOPPING':
-        return 'Wait...';
       default:
-        return 'I\'m broken. Tell the other vikings about it.';
+        return 'Wait...';
     }
   }
 
@@ -61,18 +62,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p disabled={loading}>
-          Server Status: {status}
-        </p>
-        <button className="App-button" disabled={buttonDisabled || loading} onClick={handleClick}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <Box
+        sx={{
+          marginTop: 40,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <StatusIcon status={status}/>
+        <Button onClick={handleClick} disabled={buttonDisabled || loading} variant="contained" style={{marginTop: 20}}>
           {buttonText}
-        </button>
-        <br/>
-        <button disabled={loading} className="App-button" onClick={refresh}>Refresh</button>
-      </header>
-    </div>
+        </Button>
+        <Button onClick={refresh} variant="contained" style={{marginTop: 20}}>Refresh</Button>
+      </Box>
+  </ThemeProvider>
   );
 }
 
