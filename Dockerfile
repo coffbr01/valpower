@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:17-slim-buster
 COPY ./target /app
 WORKDIR /app
 EXPOSE 8080
