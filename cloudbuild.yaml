@@ -1,0 +1,10 @@
+steps:
+  # Maven build
+  - name: 'mvn-clean-install'
+    args: ['./mvnw', 'clean', 'install']
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/psychic-rush-331522/valpower/valpower:latest', '.' ]
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'push', 'us-central1-docker.pkg.dev/psychic-rush-331522/valpower/valpower:latest' ]

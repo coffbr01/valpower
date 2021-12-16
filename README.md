@@ -31,3 +31,6 @@ npm start
 ./mvn clean install
 docker build .
 ```
+
+## Infrastructure
+Hosted on GCP Cloud Run. Interaction will trigger start/stop in AWS ec2
