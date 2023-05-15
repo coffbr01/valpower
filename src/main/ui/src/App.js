@@ -41,6 +41,8 @@ const App = () => {
   const isButtonDisabled = (status) => status !== 'RUNNING' && status !== 'STOPPED';
 
   const handleClick = () => {
+    alert('This page is retired. The server is always running now');
+    return;
     let url;
     if (status === 'RUNNING') {
       url = '/api/ec2/stop';
@@ -64,6 +66,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
+	  <div>
+	      The server is always on now. This page is retired!
+	  </div>
       <Box
         sx={{
           marginTop: 40,
