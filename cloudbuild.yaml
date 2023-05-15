@@ -1,6 +1,7 @@
 steps:
   # Maven build
-  - name: 'gcr.io/cloud-builders/mvn'
+  - name: maven:3.8.5-openjdk-17
+    entrypoint: mvn
     args: ['install']
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
